@@ -1,18 +1,26 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+// import { createOptimizedPicture } from '../../scripts/aem.js';
 
-export default function decorate(block) {
-  /* change to ul, li */
+async function fetchCardsData() {
+  const response = await fetch('/data/content.json');
+  const data = await response.json();
+  return data.cards || [];
+}
+
+export default async function decorate(block) {
   const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
+  const cards = await fetchCardsData();
+  cards.forEach((card) => {
     const li = document.createElement('li');
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
+    const bodyDiv = document.createElement('div');
+    bodyDiv.className = 'cards-card-body';
+    const title = document.createElement('h3');
+    title.textContent = card.title;
+    const desc = document.createElement('p');
+    desc.textContent = card.description;
+    bodyDiv.append(title, desc);
+    li.append(bodyDiv);
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(ul);
 }
