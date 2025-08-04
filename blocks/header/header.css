@@ -1,4 +1,5 @@
 /* header and nav layout */
+
 /* header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -55,6 +56,7 @@ header nav a:any-link {
 } */
 
 /* hamburger */
+
 /* header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -136,6 +138,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 } */
 
 /* brand */
+
 /* header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
@@ -150,6 +153,7 @@ header nav .nav-brand img {
 } */
 
 /* sections */
+
 /* header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -263,6 +267,7 @@ header nav .nav-sections ul > li > ul > li {
 } */
 
 /* tools */
+
 /* header nav .nav-tools {
   grid-area: tools;
 
@@ -287,7 +292,7 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 70px 0 70px;
+    padding: 12px 70px 0;
     background-color: white;
 
     input {
@@ -304,6 +309,7 @@ header nav .nav-sections ul > li > ul > li {
       gap: 80px;
 
       span {
+        font-family: proxima-nova, sans-serif;
         font-size: 14px;
         color: #0060a8;
       }
@@ -323,6 +329,7 @@ header nav .nav-sections ul > li > ul > li {
     margin: 0 !important;
     font-size: 22px;
     color:white;
+    font-family: proxima-nova, sans-serif;
   }
 
   .top-header-container  {
@@ -332,13 +339,15 @@ header nav .nav-sections ul > li > ul > li {
     .header-detail-item {
       margin: 0;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgb(255 255 255 / 70%);
+      font-family: proxima-nova, sans-serif;
     }
   }
 }
 
 .header-nav {
   padding: 12px 70px;
+
   ul {
     margin: 0 !important;
     padding-left: 0 !important;
@@ -354,6 +363,7 @@ header nav .nav-sections ul > li > ul > li {
 
       a {
         color: #0060a8;
+        font-family: proxima-nova, sans-serif;
       }
     }
 
